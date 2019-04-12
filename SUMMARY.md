@@ -4,37 +4,37 @@
 
 ## 容器
 
-* [1. 排序容器](rong-qi-1/1.-treeset.md)
-* [2. collections工具类常用方法](rong-qi-1/2.-collections-gong-ju-lei-chang-yong-fang-fa.md)
-* [3. Queue与Deque](rong-qi-1/3.-queue-yu-deque.md)
-* [4. Enumeration接口](rong-qi-1/4.-enumeration-jie-kou.md)
-* [5. HashTable及Properties子类](rong-qi-1/5.-hashtable-ji-properties-zi-lei.md)
-* [6. Map的实现类](rong-qi-1/6.-map-de-shi-xian-lei.md)
-* [7. Guava](rong-qi-1/7.-guava.md)
-* [8. Table](rong-qi-1/8.-table.md)
-* [9. Commons](rong-qi-1/9.-commons.md)
-* [10. 总结](rong-qi-1/10.-zong-jie.md)
-* [IO](rong-qi-1/io.md)
-* [1. 输入输出](rong-qi-1/1.-wen-jian-io.md)
-* [2. 缓存](rong-qi-1/2.-huan-cun.md)
+* [1. sorted collection](collection/1.-treeset.md)
+* [2. collections usages](collection/2.-collections-gong-ju-lei-chang-yong-fang-fa.md)
+* [3. Queue and Deque](collection/3.-queue-yu-deque.md)
+* [4. Enumeration interface](collection/4.-enumeration-jie-kou.md)
+* [5. HashTable and Properties](collection/5.-hashtable-ji-properties-zi-lei.md)
+* [6. Map and its implement](collection/6.-map-de-shi-xian-lei.md)
+* [7. Guava](collection/7.-guava.md)
+* [8. Table](collection/8.-table.md)
+* [9. Commons](collection/9.-commons.md)
+* [10. Summary](collection/10.-zong-jie.md)
+* [IO](collection/io.md)
+* [1. input and output](collection/1.-wen-jian-io.md)
+* [2. cache](collection/2.-huan-cun.md)
 
-## 线程
+## thread
 
-* [1. 线程基础](xian-cheng/xian-cheng-ji-chu.md)
-* [2. concurrent](xian-cheng/2.-concurrent.md)
-* [3. java.util.concurrent](xian-cheng/3.-java.util.concurrent.md)
+* [1. Foundation](thread/xian-cheng-ji-chu.md)
+* [2. concurrent](thread/2.-concurrent.md)
+* [3. java.util.concurrent](thread/3.-java.util.concurrent.md)
 
 ## 网络编程
 
-* [java.net](wang-luo-bian-cheng/java.net.md)
-* [netty](wang-luo-bian-cheng/netty.md)
+* [java.net](net-programing/java.net.md)
+* [netty](net-programing/netty.md)
 
 ## java动态性
 
-* [1. 注解与反射](java-dong-tai-xing/1.-zhu-jie-yu-fan-she.md)
-* [2. 动态编译](java-dong-tai-xing/2.-dong-tai-bian-yi.md)
-* [3. JVM核心机制与类加载器](java-dong-tai-xing/2.-jvm-he-xin-ji-zhi-yu-lei-jia-zai-qi.md)
-* [4. 内部类](java-dong-tai-xing/4.-nei-bu-lei.md)
+* [1. 注解与反射](java-dynamic/1.-zhu-jie-yu-fan-she.md)
+* [2. 动态编译](java-dynamic/2.-dong-tai-bian-yi.md)
+* [3. JVM核心机制与类加载器](java-dynamic/2.-jvm-he-xin-ji-zhi-yu-lei-jia-zai-qi.md)
+* [4. 内部类](java-dynamic/4.-nei-bu-lei.md)
 
 ## 设计模式
 
