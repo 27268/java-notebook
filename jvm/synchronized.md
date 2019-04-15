@@ -19,35 +19,37 @@ Synchronized使用方式：
 * 同步类，同步当前类对象
 * 同步代码块
 
-`//同步代码块  
-Object lock = new Object();  
-public void syncDemo1(){  
-         synchronized(lock){ //同步代码块，锁加在lock对象上，  
-                   //业务逻辑  
-         }  
-}  
-  
-//同步方法  
-public Synchronized void syncDemo1(){  
-         //业务逻辑  
-         //相当于Synchronized(this){}  
-}  
-  
-//锁加在当前对象this上，  
-public void methodName(){  
-    synchronized(this){  
-        //此类的其他对象不可以同时访问这段代码  
-    }  
-}  
-  
-//锁加在类上，  
-public class ClassName{  
-    public void methodName(){  
-        synchronized(ClassName.class){  
-        //此类的其他对象不可以同时访问这段代码  
-        }  
-    }  
-}`
+```java
+//同步代码块
+Object lock = new Object();
+public void syncDemo1(){
+         synchronized(lock){ //同步代码块，锁加在lock对象上，
+                   //业务逻辑
+         }
+}
+
+//同步方法
+public Synchronized void syncDemo1(){
+         //业务逻辑
+         //相当于Synchronized(this){}
+}
+
+//锁加在当前对象this上，
+public void methodName(){
+    synchronized(this){
+        //此类的其他对象不可以同时访问这段代码
+    }
+}
+
+//锁加在类上，
+public class ClassName{
+    public void methodName(){
+        synchronized(ClassName.class){
+        //此类的其他对象不可以同时访问这段代码
+        }
+    }
+}
+```
 
 反编译查看`synchronized`部分的节码
 
