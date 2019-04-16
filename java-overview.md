@@ -85,11 +85,16 @@ description: 图灵
 ### ORM框架MyBatis
 
 * myBatis体系结构
+  * 与传统JDBC的对比，与hibernate的对比
+  * myBatis全局参数
+  * 逆向工程
+  * 详解configuration，properties，setting，typeAlises，mapper
+  * xml，annotations，criteria
 * 与Spring的集成
 * myBatis源码分析：Configuration、Mapper、SqlSession、Executor
 * myBatis中用到的设计模式：工厂模式、构建模式、单例模式、责任链模式、代理模式、模板模式、装饰模式
 * myBatis运行机制
-  * 初始化过程
+  * 内部运行机制与初始化过程
   * 二级缓存应用
 
 ## 并发编程专题
@@ -98,15 +103,27 @@ description: 图灵
 
 ```java
 public interface Future{}
+public interface Executor{}
 ```
 
 ### locks
 
 ### tools限制
 
-### atomic
+* CountDownLatch
+* Semaphore
+
+### atomic原子性
+
+* atomic类，ThreadLocal，ABA，JMM，cas
 
 ### collections
+
+* ConcurrentQueue
+* Map
+  * ConcurrentHashMap
+  * HashMap, HashTable
+* Concurrent List, Set
 
 ### ForkJoin框架
 
@@ -123,7 +140,17 @@ public interface Future{}
 
 ### JVM性能调优
 
-* jvm内存模型和内存管理
+* jvm内存模型
+  * 堆空间，方法区， 线程计数器，线程栈，本地方法栈
+  * **直接内存**
+* 内存管理
+  * 垃圾回收机制
+    * 垃圾收集器：G1, Serial, ParNew, ParallelScavenge, Serial old, CMS\(concurrent mark sweep\)
+    * 垃圾收集算法：标记-清除（Mark-sweep），复制算法、标记-整理、分代收集
+  * 调优工具
+    * jdk命令：jps, jstat, jinfo, jmap, jhat, jstack
+    * jconsole
+    * jvisualvm
 * 类加载机制：类加载器和双亲委派机制
 * JVM调优：GC日志分析、JVM参数调优分析
 
@@ -135,35 +162,145 @@ public interface Future{}
   * 锁机制
     * 性能（乐观锁、悲观锁）
     * 操作（读锁、写锁）
+    * 粒度（表锁、行锁）
+    * 死锁及优化解决
+  * 事务隔离级别
+    * 读未提交
+    * 读已提交
+    * 可重复读（MVCC机制）
+    * 串行化
+  * 复杂SQL语句优化
 
 ### Nginx调优
 
+* Nginx整体架构：核心模块、标准Http模块、可选http模块、第三方模块、Nginx事件驱动模型
+* Nginx核心配置：基本配置、虚拟主机配置、upstream、location、静态目录配置
+* Nginx负载均衡算法：轮询+权重，IP hash、URL hash，least\_conn、least\_time
+
 ### Tomcat调优
+
+* tomcat项目架构
+  * tomcat启动流程，http请求解析与处理流程
+  * 核心组件：wrapper, context, host, engine, container
+  * tomcat 8 & tomcat 7
+* 生产环境配置：server.xml文件、tomcat集群与会话复制方案、tomcat虚拟主机配置
+* tomcat线程模型
+  * tomcat支持的四种线程模型：NIO、BIO、APR、AIO
+  * 通过压测演示NIO与BIO的区别
+  * tomcat BIO, NIO源码，
+  * connector并发参数
 
 ## 分布式框架专题
 
 ### 初识分布式
 
+* 分布式系统的定义、意义、基础知识
+* 大型网站架构模式
+  * 分层、分割模式
+  * 分布式（缓存、异步模式，系统冗余、扩展模式）、集群模式
+* 大型网站架构要素
+  * 高并发原子性：无状态、拆分、服务化、消息队列
+  * 高可用原子性：降级、限流、备份、监听
+
 ### 分布式中间件
 
+* 分布式服务治理（zookeeper、dubbo）
+  * 分布式应用系统服务化通讯技术，从集中到分布式的特点：ACID到CAP/base基础
+  * 分布式协同框架Zookeeper
+    * zookeeper集群部署、服务注册与订阅、zookeeper迁移、扩容、监控
+    * znode、watcher、ACL、客户端API、客户端 服务端源码
+  * RPC服务框架Dubbo
+    * 分布式架构的历史、入手、风险
+    * 常规应用：dubbo作用、demo、架构与基本角色、基本应用与配置
+    * 企业级应用：分布式项目开发与连调、dubbo控制管理后台、dubbo注册中心
+    * RPC协议底层原理与实现：RPC协议基本组成、报文编码与实现、RPC in dubbo
+    * 调用模块：容错、负载均衡、异步调用、过滤器，应用场景：泛华调用与引用、隐式传参、令牌验证，dubbo路由功能
+* 分布式消息异步解耦（RocketMq、kafka、Rabbitmq）
+  * 常用中间件对比：rocketMq、kafka、rabbitmq、activeMq
+  * 分布式消息框架RocketMq
+    * 集群部署与快速入门、监控与运维
+    * RocketMq模块划分与集群原理
+    * 普通消息、顺序消息、事务消息、定时消息
+    * RockerMq broker, consumer-producer 源码分析
+  * kafka：简介、集群搭建与使用、原理分析
+* 分布式数据缓存（redis）
+  * 关系型数据库瓶颈与优化，非关系型数据库中间件：mongoDB, redis, tair, memcache, neo4j
+  * redis使用场景
+  * redis基本数据类型、哨兵机制、复制、常用命令
+  * redis cluster原理、集群分配算法与动态水平扩容与监控、
+  * jedis cluster开发与通信协议
+* 分布式数据存储（sharding-sphere）
+  * 分布式场景中的数据库瓶颈，为何要读写分离、分库分表
+  * 常见分片算法：hash、list、range、tag，常见中间件：Mycat、sharding-jdbc
+  * 分布式数据中间件sharding-jdbc
+    * sharding-jdbc快速开始、核心概念，特性详解与模块划分，最新技术sharding-sphere
+    * sharding-jdbc源码：SQL解析、SQL路由、SQL改写、SQL执行、结果合并
+  * Atlas配置与原理，实践与优缺点
+
 ### 分布式通信（Netty）
+
+* NIO线程模型、reactor模型，线程源码分析
+* 高性能序列化协议protobuf与源码分析
+* 粘包、分包现象及解决方案、编解码器源码分析
+* netty之http协议开发（弹幕系统），WebSocket协议开发（多人联机网游）
+
+### 分布式搜索引擎
+
+* 技术点：Elasticsearch、logstash、kibana
+* ELk集群搭建实战、架构与原理分析
 
 ## 项目实战专题
 
 ### 电商平台
 
+* 项目介绍、系统划分&技术实现
+  * 会员系统：模块配置、会员业务实现、SSO单点登录、数据库分库分表
+  * 商品系统：模块配置、商品业务实现、商品详情页静态化与缓存
+  * 订单系统：模块配置、订单业务实现、分布式失误 幂等性 重复问题
+  * 后台系统：模块配置、系统权限 资源 账号 权限关系技术实现
+* 技术解决方案
+  * 高并发秒杀系统的技术实现与限流
+  * 商品详情页的缓存击穿与解决方案、整体缓存方案
+  * 分布式订单号生成
+  * 海量数据：不需要扩容的分库分表方案，读写分离技术方案
+
 ### 分布式调用链平台
+
+* 分布式调用链简介、平台概要设计，
+* 实现技术：Javaassit，javaagent，字节码插桩，
+* 埋点（探针）采集
+  * 采集点：Dubbo，JDBC Driver，Spring，Tomcat，http，redis
+* 基础知识：类加载器，ThreadLocal、ThreadPool应用
+* 分布式环境部署与问题排查
 
 ## 微服务系列
 
+微服务发展与产生的意义
+
 ### Spring Boot
 
+* 快速开始与核心配置、部署方式及热部署
+* web开发末班引擎：thymeleaf，freemarker
+* spring boot集成myBatis、redis、rabbitMq、多数据源路由、分布式事务处理
+* spring boot源码解析
+
 ### Spring Cloud
+
+* eureka服务注册与发现 及源码
+* ribbon客户端负载均衡 及源码
+* fegin声明式服务调用及源码
+* hystrix实现服务限流、降级、熔断
+* zuul统一网关，服务路由，过滤器使用，zuul统一异常处理，cookie和重定向
+* 分布式配置中心Config
+* 分布式链路跟踪
 
 ### 虚拟容器
 
 * Docker
+  * docker镜像、仓库、容器详解、快速开始
+  * DockerFile、DockerCompose使用详解及服务编排实现
 * Kubernetes
+  * 介绍、快速开始、部署生态环境
 
 ## 扩展技术专题
 
