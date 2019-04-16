@@ -58,6 +58,43 @@ description: 图灵
 * Linux用户与权限介绍
 * shell脚本
 
+Linux：系统内核、shell、文件系统、实用工具。系统内核对外提供系统调用借口，shell、文件系统、实用工具通过访问系统调用，实现自身功能。
+
+系统内核的功能：
+
+* 进程调度：控制进程对CPU资源的访问，多任务系统中存在多个可以被调度的任务。等待其他资源\(cpu之外的资源\)的进程将处于睡眠状态，等资源就绪后，进程被唤醒，等待再次被调度。 Linux的内存调度方法：优先级
+* 内存管理：linux支持以虚拟内存的方式进行内存管理。 虚拟内存：将磁盘作为内存的扩展，程序被调入内存后，若程序、堆栈、数据的总容量超过内存的实际大小，内核会将当前使用的程序块保存在内存中，其他内容保存在磁盘中，当执行到磁盘中的内容时，内核会负责在磁盘和内存之间交换数据，这里就用到Linux的交换区。
+* 虚拟文件系统VFS，向用户提供统一的访问接口。 用户程序 -&gt; VFS -&gt; {fat, ext2, ext3, ISO-9660, ... } -&gt; 设备驱动程序 -&gt; {磁盘，光盘，闪盘}
+* 进程间通信机制
+  * 本机进程间通信的消息队列、共享内存、信号量
+  * 网络环境进程通信：套接口socket
+  * POSIX通信机制
+
+```text
+$ uname -r 
+4.15.0-29deepin-generic //查看系统内核版本
+$ uname -a //查看系统发行版本。发行版本：软件厂商
+Linux liuyi-PC 4.15.0-29deepin-generic #31 SMP Fri Jul 27 07:12:08 UTC 2018 x86_64 GNU/Linux
+
+$ sudo fdisk -l 
+Disk /dev/sda: 931.5 GiB, 1000204886016 bytes, 1953525168 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: dos
+Disk identifier: 0x81fcf99d
+
+Device     Boot      Start        End    Sectors   Size Id Type
+/dev/sda1  *          2048 1936855039 1936852992 923.6G 83 Linux
+/dev/sda2       1936857086 1953523711   16666626     8G  5 Extended
+/dev/sda5       1936857088 1953523711   16666624     8G 82 Linux swap / Solaris
+
+```
+
+进程调度策略：分时调度sched\_other、先到先服务的实时调度sched\_fifo、时间片轮转的实时调度sched\_rr
+
+shell 为用户提供交互操作的接口
+
 ## 框架
 
 ### Spring
