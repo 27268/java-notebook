@@ -5,6 +5,7 @@
 
 ## 容器
 
+* [java basic](collection/java-basic.md)
 * [1. sorted collection](collection/1.sorted-collections.md)
 * [2. collections usages](collection/2.collections-usage.md)
 * [3. Queue and Deque](collection/3.queue-and-deque.md)
