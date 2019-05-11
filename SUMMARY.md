@@ -49,6 +49,7 @@
 
 * [内存模型](jvm/memory-model.md)
 * [synchronized锁机制](jvm/synchronized.md)
+* [JVM](jvm/jvm.md)
 
 ## 新特性
 
