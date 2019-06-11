@@ -16,9 +16,12 @@
 * [8. Table](collection/8.-table.md)
 * [9. Commons](collection/9.-commons.md)
 * [10. Summary](collection/10.-zong-jie.md)
-* [IO](collection/io.md)
-* [1. input and output](collection/1.-wen-jian-io.md)
-* [2. cache](collection/2.-huan-cun.md)
+
+## IO
+
+* [1. input and output](io/1.-wen-jian-io.md)
+* [2. cache](io/2.-huan-cun.md)
+* [Untitled](io/untitled.md)
 
 ## thread
 
@@ -35,8 +38,7 @@
 
 * [1. 注解与反射](java-dynamic/1.annotation-and-reflect.md)
 * [2. 动态编译](java-dynamic/2.dynamic-compiling.md)
-* [3. JVM核心机制与类加载器](java-dynamic/2.-jvm-and-classloader.md)
-* [4. 内部类](java-dynamic/4.inner-classes.md)
+* [3. 内部类](java-dynamic/4.inner-classes.md)
 
 ## 设计模式
 
@@ -48,6 +50,7 @@
 ## JVM
 
 * [内存模型](jvm/memory-model.md)
+* [JVM核心机制与类加载器](jvm/2.-jvm-and-classloader.md)
 * [synchronized锁机制](jvm/synchronized.md)
 * [JVM](jvm/jvm.md)
 
@@ -61,4 +64,16 @@
 * [跨数据库的分布式事务](frameworks/transaction-cross-database.md)
 * [Spring功能扩展](frameworks/spring-kuo-zhan.md)
 * [Spring](frameworks/spring-study-map.md)
+* [mybatis](frameworks/mybatis.md)
+
+## 编程题
+
+* [二叉树的镜像](bian-cheng-ti/er-cha-shu-de-jing-xiang.md)
+* [顺时针打印矩阵](bian-cheng-ti/shun-shi-zhen-da-yin-ju-zhen.md)
+* [包含min\(\)的栈](bian-cheng-ti/bao-han-min-de-zhan.md)
+* [栈的压入、弹出序列](bian-cheng-ti/zhan-de-ya-ru-tan-chu-xu-lie.md)
+
+## 面试题
+
+* [hashcode & equals](mian-shi-ti/hashcode-and-equals.md)
 

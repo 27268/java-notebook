@@ -28,7 +28,7 @@ description: Start from now！
 
 ## IO
 
-{% page-ref page="collection/1.-wen-jian-io.md" %}
+{% page-ref page="io/1.-wen-jian-io.md" %}
 
 ## 线程
 
@@ -50,7 +50,7 @@ description: Start from now！
 
 {% page-ref page="java-dynamic/2.dynamic-compiling.md" %}
 
-{% page-ref page="java-dynamic/2.-jvm-and-classloader.md" %}
+{% page-ref page="jvm/2.-jvm-and-classloader.md" %}
 
 {% page-ref page="java-dynamic/4.inner-classes.md" %}
 
