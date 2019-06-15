@@ -28,6 +28,8 @@
 * [1. Foundation](thread/1.foundation.md)
 * [2. concurrent](thread/2.-concurrent.md)
 * [3. java.util.concurrent](thread/3.-java.util.concurrent.md)
+* [4. ThreadPoolExecutor](thread/4.-threadpoolexecutor.md)
+* [5. ReentrantLock](thread/5.-reentrantlock.md)
 
 ## 网络编程
 
